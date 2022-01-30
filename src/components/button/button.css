@@ -1,0 +1,41 @@
+.btn{
+    @apply relative z-[0] overflow-hidden text-xl tracking-wider border-[1.5px] font-teko inline-flex items-center justify-center;
+}
+
+.btn-bg{
+    @apply absolute w-full h-0 top-0 left-0 z-[-1] transition-[height] duration-300;
+}
+
+.btn::after{
+    content: attr(data-text);
+    @apply absolute top-0 left-0 w-full h-full transition-all duration-300;
+}
+
+.btn::before{
+    content: attr(data-text);
+    @apply absolute left-0 w-full h-full transition-all duration-300 top-full;
+}
+
+.btn:hover::after{
+    @apply -top-full;
+}
+
+.btn:hover::before{
+    @apply top-0;
+}
+
+.btn-primary{
+    @apply  px-6 py-2 text-transparent border-white;
+}
+
+.btn-primary::after{
+    @apply px-4 py-2 text-white;
+}
+
+.btn-primary::before{
+    @apply px-4 py-2 text-black;
+}
+
+.btn-primary-bg{
+    @apply bg-white;
+}

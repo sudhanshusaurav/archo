@@ -1,0 +1,32 @@
+.slide-index{
+    -webkit-text-stroke : 1px white;
+}
+
+.swiper-button-next{
+    padding: 0 30px;
+    height: 60px;
+    border: 1px solid white;
+    color: white;
+    top: unset;
+    right: 50px;
+    bottom: 120px;
+}
+
+.swiper-button-prev{
+    padding: 0 30px;
+    height: 60px;
+    border: 1px solid white;
+    color: white;
+    top: unset;
+    left: unset;
+    right: 50px;
+    bottom: 50px;
+}
+
+.swiper-button-next::after{
+    font-size: 14px;
+}
+
+.swiper-button-prev::after{
+    font-size: 14px;
+}
