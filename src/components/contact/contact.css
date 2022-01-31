@@ -1,7 +1,8 @@
 .contact{
     background: url('../../assets/images/6.jpg');
     background-repeat: no-repeat;
-    background-position: fixed;
+    background-attachment: fixed;
+    background-position: center;
     background-size: cover;
 }
 

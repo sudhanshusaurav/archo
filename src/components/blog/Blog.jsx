@@ -26,7 +26,7 @@ function Blog() {
     ]
 
     const renderBlogs = blogData.map(blog => {
-        return <BlogCard blog={blog}/>;
+        return <BlogCard blog={blog} key={blog.title}/>;
     })
   return <div className='py-32'>
       <div className='w-[85%] mx-auto text-center'>

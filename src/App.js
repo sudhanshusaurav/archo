@@ -5,7 +5,17 @@ import Header from "./components/header/Header";
 import Home from "./pages/Home";
 
 function App() {
+  const [appLoading, setAppLoading] = useState(false);
   const [stickyHeader, setStickyHeader] = useState(false);
+
+  useEffect(() => {
+    setAppLoading(true);
+    setTimeout(() => {
+      setAppLoading(false)
+    }, 3000);
+  }, []);
+  
+
   useEffect(() => {
 
     const stickyHeader = () => {
@@ -30,12 +40,15 @@ function App() {
   }, []);
   
   return (
-    <div className="App">
+    <div className={`app ${appLoading ? '' : 'app-loaded'}`}>
+      <div className={`h-[100vh] ${appLoading ? 'overflow-hidden' : ''}`}>
       <Cursor/>
       <Header stickyHeader={stickyHeader}/>
       <Routes>
         <Route exact path="/" element={<Home/>}/>
       </Routes>
+      </div>
+      {appLoading && <span className="loader"></span>}
     </div>
   );
 }

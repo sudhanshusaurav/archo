@@ -1,14 +1,34 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import gsap from 'gsap';
+import ScrollTrigger from 'gsap/ScrollTrigger';
+
 import './services.css';
 
+gsap.registerPlugin(ScrollTrigger)
+
 function Services() {
+
+    useEffect(() => {
+      let tl = gsap.timeline({
+          scrollTrigger: {
+              trigger: '.service__tl__init',
+              start: 'top 70%'
+          }
+      })
+
+      tl.fromTo('.service__slide__bottom', {y: -150, opacity: 0}, {y:0, opacity: 1, duration: 1, stagger: .5})
+      tl.fromTo('.service__reveal__down', {clipPath:'polygon(0 0, 100% 0, 100% 0, 0 0)'},{clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0% 100%)', duration:.5, stagger:.5})
+      tl.from('.service__bg__reveal', {background:'none', duration: 1})
+    }, []);
+    
+
   return <div className='w-full py-32 bg-primary-light'>
-      <div className='w-[85%] mx-auto text-center'>
-        <h5 className='tracking-[5px] text-primary font-teko text-lg'>BEST FEATURES</h5>
-        <h1 className='my-8 text-5xl font-semibold leading-5 tracking-wider font-playfair'>Our Services</h1>
-        <div className='flex items-center mt-24 text-left service__card__wrapper'>
-            <div className='flex items-center justify-center flex-1 bg-white border-r-[.5px] border-gray/20 service__card'>
+      <div className='w-[85%] mx-auto text-center service__tl__init'>
+        <h5 className='tracking-[5px] text-primary font-teko text-lg service__slide__bottom'>BEST FEATURES</h5>
+        <h1 className='my-8 text-5xl font-semibold leading-5 tracking-wider font-playfair service__slide__bottom'>Our Services</h1>
+        <div className='flex items-center mt-24 text-left service__card__wrapper service__bg__reveal'>
+            <div className='flex items-center justify-center flex-1 bg-white service__reveal__down border-r-[.5px] border-gray/20 service__card'>
                 <div className='p-8'>
                 <h2 className='mt-8 text-6xl font-teko text-primary service__card__index'>01</h2>
                     <h4 className='my-4 text-lg font-semibold transition-all duration-300'>Architecture</h4>
@@ -16,7 +36,7 @@ function Services() {
                     <Link to='' className="my-6 border-none el__hover btn btn-secondary-dark">Read More</Link>
                 </div>
             </div>
-            <div className='flex items-center justify-center flex-1 bg-white border-l-[.5px] border-r-[.5px] border-gray/20 service__card'>
+            <div className='flex items-center justify-center flex-1 bg-white service__reveal__down border-l-[.5px] border-r-[.5px] border-gray/20 service__card'>
                 <div className='p-8'>
                 <h2 className='mt-8 text-6xl font-teko text-primary service__card__index'>02</h2>
                     <h4 className='my-4 text-lg font-semibold transition-all duration-300'>Interior Design</h4>
@@ -24,7 +44,7 @@ function Services() {
                     <Link to='' className="my-6 border-none el__hover btn btn-secondary-dark">Read More</Link>
                 </div>
             </div>
-            <div className='flex items-center justify-center flex-1 bg-white border-l-[.5px] border-r-[.5px] border-gray/20 service__card'>
+            <div className='flex items-center justify-center flex-1 bg-white service__reveal__down border-l-[.5px] border-r-[.5px] border-gray/20 service__card'>
                 <div className='p-8'>
                 <h2 className='mt-8 text-6xl font-teko text-primary service__card__index'>03</h2>
                     <h4 className='my-4 text-lg font-semibold transition-all duration-300'>3D Modeling</h4>
@@ -32,7 +52,7 @@ function Services() {
                     <Link to='' className="my-6 border-none el__hover btn btn-secondary-dark">Read More</Link>
                 </div>
             </div>
-            <div className='flex items-center justify-center flex-1 bg-white border-l-[.5px] border-gray/20 service__card'>
+            <div className='flex items-center justify-center flex-1 bg-white service__reveal__down border-l-[.5px] border-gray/20 service__card'>
                 <div className='p-8'>
                     <h2 className='mt-8 text-6xl font-teko text-primary service__card__index'>04</h2>
                     <h4 className='my-4 text-lg font-semibold transition-all duration-300'>Furniture Design</h4>
