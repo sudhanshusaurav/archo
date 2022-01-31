@@ -1,0 +1,3 @@
+.btn-secondary-light{
+    @apply underline uppercase transition-all duration-300 text-primary hover:no-underline;
+}

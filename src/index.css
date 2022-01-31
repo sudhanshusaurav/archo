@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@400;500;700&family=Teko:wght@400;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600;700&family=Teko:wght@300;400;600;700;800&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,7 +6,7 @@
 
 @layer base{
   body{
-    @apply font-poppins text-primary-dark;
+    @apply font-poppins text-primary-dark cursor-none;
   }
 }
 
@@ -15,5 +15,11 @@
 }
 
 @layer utilities{
-  
+  .clip-top{
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+  }
+
+  .clip-full{
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  }
 }

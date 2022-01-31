@@ -1,0 +1,30 @@
+.btn-secondary-dark{
+    @apply transition-all duration-300;
+}
+
+.service__card__wrapper{
+    background-image: linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.6)),url('../../assets/images/hero2.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.service__card{
+    @apply transition-all duration-500 hover:bg-transparent;
+}
+
+.service__card:hover *{
+    @apply text-white;
+}
+
+.service__card:hover .service__card__index{
+    @apply text-transparent;
+}
+
+.service__card:hover .btn-secondary-dark{
+    @apply text-primary;
+}
+
+.service__card__index{
+    @apply text-transparent;
+    -webkit-text-stroke: 1px #b19777;
+}

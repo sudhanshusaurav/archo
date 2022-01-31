@@ -1,0 +1,34 @@
+.header{
+    @apply w-full h-[15vh] absolute z-[99] text-white top-0 left-0  border-b border-primary/50 transition-all duration-500;
+}
+
+.header-sticky{
+    @apply fixed bg-white border-none shadow-lg text-primary-dark;
+}
+
+.nav__link{
+    @apply text-[14px] whitespace-nowrap;
+}
+
+/* .header__search{
+    @apply relative inline-block w-4 h-4 bg-transparent border border-white rounded-full outline-none;
+}
+
+.header__search:focus{
+    @apply h-8 w-28;
+}
+
+.header__search__wrapper{
+    @apply relative rounded-full;
+}
+
+.header__search__wrapper::before{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: -100%;
+    width: 7px;
+    height: 1px;
+    background: #fff;
+    transform: rotate(45deg) translateX(-10px) translateY(6px);
+} */

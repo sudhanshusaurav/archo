@@ -17,7 +17,7 @@ module.exports = {
         teko : ['Teko', 'sans-serif'],
         poppins: ['Poppins', 'sans-serif'],
         playfair: ['Playfair Display', 'serif']
-      }
+      },
     },
   },
   plugins: [],

@@ -1,0 +1,11 @@
+.skill circle{
+    @apply stroke-white;
+    fill: none;
+    stroke-width: 5px;
+    stroke-dasharray: 472;
+    stroke-dashoffset: 0;
+  }
+
+  .skill svg{
+    @apply absolute top-0 left-0;
+  }

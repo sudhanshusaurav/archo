@@ -1,0 +1,11 @@
+.cursor__ball{
+    @apply fixed top-0 left-0 rounded-full z-[999] pointer-events-none;
+}
+
+.cursor__ball--inner{
+    @apply w-2 h-2 bg-primary;
+}
+
+.cursor__ball--outer{
+    @apply w-10 h-10 border border-primary;
+}

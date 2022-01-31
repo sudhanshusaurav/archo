@@ -1,0 +1,15 @@
+.about__year{
+    font-size: 140px;
+    font-weight: 700;
+    letter-spacing: 5px;
+    color: transparent;
+    background-image: url('../../assets/images/about-image.jpg');
+    background-repeat: no-repeat;
+    /* background-attachment: fixed; */
+    background-position: 18% 65%;
+    background-clip: text;
+}
+
+.about__exp__h5{
+    letter-spacing: 3.5px;
+}

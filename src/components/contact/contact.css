@@ -1,0 +1,22 @@
+.contact{
+    background: url('../../assets/images/6.jpg');
+    background-repeat: no-repeat;
+    background-position: fixed;
+    background-size: cover;
+}
+
+.contact-form{
+    @apply w-1/2 p-8 bg-white rounded-lg;
+}
+
+.input-group{
+    @apply my-4;
+}
+
+.input-label{
+    @apply block;
+}
+
+.input-field{
+    @apply block w-full p-2 my-1 outline-none bg-white-smoke;
+}

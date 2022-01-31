@@ -1,5 +1,5 @@
 .btn{
-    @apply relative z-[0] overflow-hidden text-xl tracking-wider border-[1.5px] font-teko inline-flex items-center justify-center;
+    @apply relative z-[0] overflow-hidden text-xl tracking-wider border font-teko inline-flex items-center justify-center;
 }
 
 .btn-bg{
@@ -33,7 +33,7 @@
 }
 
 .btn-primary::before{
-    @apply px-4 py-2 text-black;
+    @apply px-4 py-2 text-primary;
 }
 
 .btn-primary-bg{
