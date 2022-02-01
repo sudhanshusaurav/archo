@@ -39,7 +39,7 @@ function Contact() {
                   <textarea name="" id="" cols="30" rows="5" required className="input-field"></textarea>
               </div>
               <div className="">
-                  <button type="submit" className="flex items-center justify-center w-full py-2 text-xl uppercase border font-teko text-primary border-primary hover:text-white hover:bg-primary">send message</button>
+                  <button type="submit" className="flex items-center justify-center w-full py-2 text-xl uppercase border font-teko text-primary border-primary hover:text-white hover:bg-primary el__hover">send message</button>
               </div>
           </form>
       </div>
