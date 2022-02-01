@@ -1,5 +1,7 @@
-import React, { useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { SwiperSlide } from "swiper/react";
+import gsap from 'gsap';
+import ScrollTrigger from 'gsap/ScrollTrigger';
 import SlidePerView from '../carousel/SlidePerView';
 import './testimonials.css'
 import John from '../../assets/images/john.jpg'
@@ -8,6 +10,8 @@ import Alison from '../../assets/images/alison.jpg'
 import Peter from '../../assets/images/peter.jpg' 
 import Quote from '../../assets/images/quote.png'
 import {FaLongArrowAltLeft, FaLongArrowAltRight} from 'react-icons/fa'
+
+gsap.registerPlugin(ScrollTrigger)
 
 function Testimonials() {
     const testimonialData = [
@@ -32,6 +36,19 @@ function Testimonials() {
             image: Alison
         }
     ]
+
+    useEffect(() => {
+      let tl = gsap.timeline({
+          scrollTrigger: {
+              trigger: '.testimonial__tl__init',
+              start: 'top center'
+          }
+      })
+
+      tl.fromTo('.testimonial__slide__bottom', {y: -150, opacity: 0}, {y:0, opacity: 1, duration: 1, stagger: .5})
+      tl.fromTo('.testimonial__slide__left', {x: '100%', opacity:0}, {x:0, opacity:1, duration:1})
+    }, []);
+    
 
     const slideRef = useRef(null);
 
@@ -65,11 +82,11 @@ function Testimonials() {
     </SwiperSlide>;
     })
 
-  return <div className='py-32'>
+  return <div className='py-32 testimonial__tl__init'>
       <div className='w-[85%] mx-auto text-center'>
-        <h5 className='tracking-[5px] text-primary font-teko text-lg'>TESTIMONIALS</h5>
-        <h1 className='my-8 text-5xl font-semibold leading-5 tracking-wider font-playfair'>What People Says?</h1>
-        <div className='relative'>
+        <h5 className='tracking-[5px] text-primary font-teko text-lg testimonial__slide__bottom'>TESTIMONIALS</h5>
+        <h1 className='my-8 text-5xl font-semibold leading-5 tracking-wider font-playfair testimonial__slide__bottom'>What People Says?</h1>
+        <div className='relative testimonial__slide__left'>
             <SlidePerView ref={slideRef} slidesPerView={2} spaceBetween={50} slideId='testimonial-slide'>
                 {renderSlide}
             </SlidePerView>

@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 function BlogCard({blog}) {
-  return <div className=''>
+  return <>
         <div className=''>
             <img src={blog.image} alt="blog" className='w-full'/>
         </div>
@@ -11,7 +11,7 @@ function BlogCard({blog}) {
             <h3 className='my-4 text-lg font-semibold font-playfair'>{blog.title}</h3>
             <Link to='' className="mt-2 border-none el__hover btn btn-secondary-light">Read More</Link>
         </div>
-  </div>;
+  </>;
 }
 
 export default BlogCard;

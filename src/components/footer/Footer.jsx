@@ -1,10 +1,30 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import gsap from 'gsap';
+import ScrollTrigger from 'gsap/ScrollTrigger';
 import Logo from '../../assets/images/logo.png'
 import {FaFacebookF, FaTwitter, FaInstagram, FaLinkedin} from 'react-icons/fa'
 import './footer.css'
 
+gsap.registerPlugin(ScrollTrigger)
+
 function Footer() {
-  return <div className="relative pt-32">
+
+    useEffect(() => {
+      let tl = gsap.timeline()
+
+      ScrollTrigger.create({
+          animation: tl,
+          trigger: '.footer__tl__init',
+          start: 'top bottom',
+          end: 'bottom bottom',
+          scrub: 1
+      })
+
+      tl.fromTo('.footer__slide__top', {top: 200},{top:0})
+    }, []);
+    
+
+  return <div className="relative pt-32 overflow-y-hidden footer__tl__init">
       <div className="w-[85%] mx-auto flex text-white">
         <div className="basis-[40%]">
         <img src={Logo} alt="logo" className="el__hover"/>
@@ -40,7 +60,7 @@ function Footer() {
             </div>
         </div>
     </div>
-      <div className="absolute bottom-0 left-0 w-full h-full bg-gray z-[-1]"></div>
+      <div className="absolute -bottom-0 left-0 w-full h-full bg-gray z-[-1] footer__slide__top"></div>
   </div>;
 }
 

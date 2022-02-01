@@ -1,10 +1,27 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import gsap from 'gsap';
+import ScrollTrigger from 'gsap/ScrollTrigger';
 import './contact.css'
 
+gsap.registerPlugin(ScrollTrigger)
+
 function Contact() {
+
+    useEffect(() => {
+      let tl = gsap.timeline({
+          scrollTrigger: {
+              trigger: '.contact__tl__init',
+              start: 'top center'
+          }
+      })
+
+      tl.fromTo('.contact__slide__right', {x: '-100%', opacity:0},{x:0, opacity:1, duration:1})
+    }, []);
+    
+
   return <div className="py-32 contact">
-      <div className="w-[85%] mx-auto">
-          <form action="" className="contact-form">
+      <div className="w-[85%] mx-auto contact__tl__init">
+          <form action="" className="contact-form contact__slide__right">
               <div className="input-group">
                   <label htmlFor="" className="input-label">Your Name</label>
                   <input type="text" name="" id="" required className="input-field"/>

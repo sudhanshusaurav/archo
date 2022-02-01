@@ -1,5 +1,7 @@
-import React, { useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { SwiperSlide } from "swiper/react";
+import gsap from 'gsap';
+import ScrollTrigger from 'gsap/ScrollTrigger';
 import SlidePerView from '../carousel/SlidePerView';
 import John from '../../assets/images/john.jpg'
 import Jane from '../../assets/images/jane.jpg'
@@ -10,7 +12,22 @@ import Matt from '../../assets/images/matt.jpg'
 import {FaLongArrowAltLeft, FaLongArrowAltRight, FaFacebookF, FaTwitter, FaInstagram} from 'react-icons/fa'
 import './employees.css'
 
+gsap.registerPlugin(ScrollTrigger)
+
 function Employees() {
+
+    useEffect(() => {
+      let tl = gsap.timeline({
+          scrollTrigger: {
+              trigger: '.employee__tl__init',
+              start: 'top center'
+          }
+      })
+
+      tl.fromTo('.employee__slide__left',{x:'100%'}, {x:0, duration:.5, stagger:.5})
+      tl.fromTo('.employee__slide__right',{x:'-100%', opacity:0}, {x:0, opacity:1, duration:.5, stagger:.5})
+    }, []);
+    
 
     const employeeData = [
         {
@@ -75,23 +92,23 @@ function Employees() {
     })
 
   return <div className='relative py-32'>
-      <div className='flex items-center'>
+      <div className='flex items-center employee__tl__init'>
         <div className='basis-[40%] pl-20 pr-8'>
-            <h5 className='text-xl tracking-wide text-primary font-teko'>Some thoughts from us</h5>
-            <h1 className='my-8 text-4xl font-bold leading-3'>Our Employees</h1>
-            <p className='leading-7 text-gray/60'>We feel proud for our expert team members beatae ipsum dolor sit amet, consectetur adipisicing elit mauris vitae consequat nibh, vitae interdum mi.</p>
-            <div className='my-6'>
+            <h5 className='text-xl tracking-wide text-primary font-teko employee__slide__right'>Some thoughts from us</h5>
+            <h1 className='my-8 text-4xl font-bold leading-3 employee__slide__right'>Our Employees</h1>
+            <p className='leading-7 text-gray/60 employee__slide__right'>We feel proud for our expert team members beatae ipsum dolor sit amet, consectetur adipisicing elit mauris vitae consequat nibh, vitae interdum mi.</p>
+            <div className='my-6 employee__slide__right'>
                 <div onClick={prevSlide} className='inline-block p-5 mx-1 transition-all duration-300 bg-white-smoke hover:bg-primary/70 hover:border-none hover:text-white el__hover'><FaLongArrowAltLeft/></div>
                 <div onClick={nextSlide} className='inline-block p-5 mx-1 bg-white-smoke hover:bg-primary/70 hover:border-none hover:text-white el__hover'><FaLongArrowAltRight/></div>
             </div>
         </div>
-        <div className='flex-1 overflow-hidden'>
+        <div className='flex-1 overflow-hidden employee__slide__left'>
             <SlidePerView ref={slideRef} slidesPerView={2.5} spaceBetween={40} slideId='employee-slide'>
                 {renderSlide}
             </SlidePerView>
         </div>
       </div>
-      <div className='absolute right-0 top-0 w-1/3 h-full bg-primary-light z-[-1]'></div>
+      <div className='absolute right-0 top-0 w-1/3 h-full bg-primary-light z-[-1] employee__slide__left'></div>
   </div>;
 }
 
