@@ -41,23 +41,14 @@ function Portfolio() {
                 start: 'top 70%'
             }
         })
-
-        let tl2 = gsap.timeline({
-            scrollTrigger: {
-                trigger: `.portfolio__image__tl`,
-                start: 'top 70%'
-            }
-        })
   
         tl.fromTo('.portfolio__slide__bottom', {y: -150, opacity: 0}, {y:0, opacity: 1, duration: 1, stagger: .5})
-
-        tl2.fromTo(`.portfolio__image__tl`, {clipPath:'polygon(0 0, 100% 0, 100% 0, 0 0)'},{clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0% 100%)', duration:1, stagger:.5})
     }, []);
     
 
-    const renderPortfolioCard = portfolioData.map(data => {
+    const renderPortfolioCard = portfolioData.map((data, index) => {
         return <div className={`flex-1 min-w-[45%] portfolio__image__tl`} key={data.title}>
-            <PortfolioCard data={data}/>
+            <PortfolioCard data={data} id={index}/>
             </div>;
     })
   return <div className='w-full py-32'>

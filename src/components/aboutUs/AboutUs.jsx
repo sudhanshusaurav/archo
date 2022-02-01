@@ -17,7 +17,7 @@ function AboutUs() {
       }
     })
     tl.fromTo('.about__reveal__down', {height:0},{height:'100%', duration:1});
-    tl.fromTo('.about__slide__left', {x:500},{x:0, duration:.5})
+    tl.fromTo('.about__slide__left', {x:500},{x:0, duration:.5, ease:"elastic(3,0.3)"})
     tl.fromTo('.about__fade__in', {opacity: 0}, {opacity: 1, duration:.5, stagger:.5});
   }, []);
   
