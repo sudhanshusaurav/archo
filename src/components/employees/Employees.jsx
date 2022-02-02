@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { SwiperSlide } from "swiper/react";
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
@@ -16,7 +16,16 @@ gsap.registerPlugin(ScrollTrigger)
 
 function Employees() {
 
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
     useEffect(() => {
+
+        const handleWindowResize = () => {
+            setWindowWidth(window.innerWidth)
+        }
+
+        window.addEventListener('resize', handleWindowResize)
+
       let tl = gsap.timeline({
           scrollTrigger: {
               trigger: '.employee__tl__init',
@@ -26,6 +35,10 @@ function Employees() {
 
       tl.fromTo('.employee__slide__left',{x:'100%'}, {x:0, duration:.5, stagger:.5})
       tl.fromTo('.employee__slide__right',{x:'-100%', opacity:0}, {x:0, opacity:1, duration:.5, stagger:.5})
+
+      return () => {
+          window.removeEventListener('resize', handleWindowResize)
+      }
     }, []);
     
 
@@ -91,19 +104,19 @@ function Employees() {
         </SwiperSlide>
     })
 
-  return <div className='relative py-32'>
-      <div className='flex items-center employee__tl__init'>
-        <div className='basis-[40%] pl-20 pr-8'>
+  return <div className='relative py-32 overflow-hidden employee__tl__init'>
+      <div className='flex flex-col items-center lg:flex-row'>
+        <div className='lg:basis-[40%] lg:pl-20 lg:pr-8 text-center lg:text-left'>
             <h5 className='text-xl tracking-wide text-primary font-teko employee__slide__right'>Some thoughts from us</h5>
-            <h1 className='my-8 text-4xl font-bold leading-3 employee__slide__right'>Our Employees</h1>
-            <p className='leading-7 text-gray/60 employee__slide__right'>We feel proud for our expert team members beatae ipsum dolor sit amet, consectetur adipisicing elit mauris vitae consequat nibh, vitae interdum mi.</p>
-            <div className='my-6 employee__slide__right'>
+            <h1 className='my-4 text-4xl font-bold lg:my-8 leading lg:leading-3 employee__slide__right'>Our Employees</h1>
+            <p className='mx-auto leading-7 md:w-1/2 lg:w-full text-gray/60 employee__slide__right'>We feel proud for our expert team members beatae ipsum dolor sit amet, consectetur adipisicing elit mauris vitae consequat nibh, vitae interdum mi.</p>
+            <div className='hidden my-6 employee__slide__right lg:block'>
                 <div onClick={prevSlide} className='inline-block p-5 mx-1 transition-all duration-300 bg-white-smoke hover:bg-primary/70 hover:border-none hover:text-white el__hover'><FaLongArrowAltLeft/></div>
                 <div onClick={nextSlide} className='inline-block p-5 mx-1 bg-white-smoke hover:bg-primary/70 hover:border-none hover:text-white el__hover'><FaLongArrowAltRight/></div>
             </div>
         </div>
-        <div className='flex-1 overflow-hidden employee__slide__left'>
-            <SlidePerView ref={slideRef} slidesPerView={2.5} spaceBetween={40} slideId='employee-slide'>
+        <div className='hidden overflow-x-hidden lg:flex-1 employee__slide__left lg:block'>
+            <SlidePerView ref={slideRef} slidesPerView={windowWidth < 992 ? 3 : 2.5} spaceBetween={40} slideId='employee-slide'>
                 {renderSlide}
             </SlidePerView>
         </div>

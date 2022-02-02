@@ -5,7 +5,6 @@ import ScrollTrigger from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger)
 
 function PortfolioCard({data, id}) {
-    console.log(id);
     useEffect(() => {
         let tl = gsap.timeline({
             scrollTrigger: {

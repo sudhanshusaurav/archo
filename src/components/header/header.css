@@ -1,5 +1,5 @@
 .header{
-    @apply w-full h-[15vh] absolute z-[99] text-white top-0 left-0  border-b border-primary/50 transition-all duration-500;
+    @apply w-full h-[10vh] md:h-[15vh] absolute z-[99] text-white top-0 left-0  border-b border-primary/50 transition-all duration-500;
 }
 
 .header-sticky{
@@ -7,7 +7,23 @@
 }
 
 .nav__link{
-    @apply text-[14px] whitespace-nowrap;
+    @apply text-2xl md:text-3xl lg:text-[14px] whitespace-nowrap;
+}
+
+.hamburger{
+    @apply p-1 relative z-[999];
+}
+
+.hamburger__bar{
+    @apply w-8 h-[2px] my-1;
+}
+
+.hamburger--active .hamburger__bar:first-child{
+    @apply rotate-45 translate-y-[1px];
+}
+
+.hamburger--active .hamburger__bar:last-child{
+    @apply -rotate-45 -translate-y-1;
 }
 
 /* .header__search{

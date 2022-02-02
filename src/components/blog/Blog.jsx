@@ -42,13 +42,13 @@ function Blog() {
     ]
 
     const renderBlogs = blogData.map(blog => {
-        return <div className='blog__reveal__down'><BlogCard blog={blog} key={blog.title}/></div>;
+        return <div className='blog__reveal__down' key={blog.title}><BlogCard blog={blog}/></div>;
     })
   return <div className='py-32'>
       <div className='w-[85%] mx-auto text-center blog__tl__init'>
         <h5 className='tracking-[5px] text-primary font-teko text-lg blog__slide__bottom'>LATEST NEWS</h5>
-        <h1 className='my-8 text-5xl font-semibold leading-5 tracking-wider font-playfair blog__slide__bottom'>Our Blogs</h1>
-        <div className="flex gap-8 mt-12">
+        <h1 className='my-4 text-5xl font-semibold leading-5 tracking-wider lg:my-8 font-playfair blog__slide__bottom'>Our Blogs</h1>
+        <div className="flex flex-col gap-8 mt-12 lg:flex-row">
                 {renderBlogs}
         </div>
       </div>

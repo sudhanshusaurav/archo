@@ -54,9 +54,9 @@ function Portfolio() {
   return <div className='w-full py-32'>
     <div className='p-8 text-center portfolio__tl__init'>
         <h5 className='tracking-[5px] text-primary font-teko text-lg portfolio__slide__bottom'>BEST WORKS</h5>
-        <h1 className='my-8 text-5xl font-semibold leading-5 tracking-wider font-playfair portfolio__slide__bottom'>Our Portfolio</h1>
+        <h1 className='my-4 text-5xl font-semibold leading-5 tracking-wider lg:my-8 font-playfair whitespace-nowrap portfolio__slide__bottom'>Our Portfolio</h1>
 
-        <div className='flex flex-wrap gap-8 mt-12'>
+        <div className='flex flex-wrap gap-8 mt-8 lg:mt-12'>
             {renderPortfolioCard}
         </div>
     </div>

@@ -33,7 +33,7 @@ function SkillProgress({count, label}) {
     }, []);
     
 
-  return <div className='flex-1 min-w-[20%] flex items-center justify-center my-12'>
+  return <div className='flex-1 md:min-w-[40%] lg:min-w-[20%] flex items-center justify-center my-12'>
   <div className='relative text-white skill skill__progress__fade__in'>
       <div className='flex items-center justify-center w-40 h-40 border-[6px] rounded-full outer border-black/20'>
           <div className='flex items-center justify-center rounded-full w-28 h-28 bg-primary-light/20 inner'>

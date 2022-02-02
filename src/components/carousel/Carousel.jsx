@@ -42,11 +42,11 @@ function Carousel({data}) {
             <div className='w-[80%] mx-auto h-full flex items-center justify-between'>
               <div className=''>
                 <h2 className='text-4xl tracking-widest uppercase font-regular text-primary font-teko el__parallax__hero' data-speed="4">{slide.type}</h2>
-                <h1 className={`my-6 text-6xl font-bold text-white capitalize el__parallax__hero`} data-speed="7">{slide.heading}</h1>
+                <h1 className={`my-6 text-4xl md:text-6xl font-bold text-white capitalize el__parallax__hero`} data-speed="7">{slide.heading}</h1>
                 <p className='text-white el__parallax__hero' data-speed="2">Right design and right ideas matter a lot of in interior design business. <br/> A style that makes a statement.</p>
                 <ButtonPrimary label="READ MORE" id="hero-primary-btn" className="my-8 el__parallax__hero el__hover"/>
               </div>
-              <div className='flex items-center gap-3 text-white mb-60 font-teko el__parallax__hero' data-speed="4">
+              <div className='flex items-center gap-3 text-white mb-72 md:mb-60 font-teko el__parallax__hero' data-speed="4">
                   <span className='mb-2 text-6xl font-black leading-none text-transparent slide__index'>{index+1}</span> <span className='text-sm'>/</span> <span className='text-4xl font-semibold leading-none'>{data.length}</span>
               </div>
             </div>

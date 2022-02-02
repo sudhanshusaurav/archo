@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { SwiperSlide } from "swiper/react";
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
@@ -37,7 +37,17 @@ function Testimonials() {
         }
     ]
 
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+    // let slidesPerView = 3
     useEffect(() => {
+
+        const handleWindowResize = () => {
+            setWindowWidth(window.innerWidth)
+        }
+
+        window.addEventListener('resize', handleWindowResize)
+
       let tl = gsap.timeline({
           scrollTrigger: {
               trigger: '.testimonial__tl__init',
@@ -45,8 +55,14 @@ function Testimonials() {
           }
       })
 
+
       tl.fromTo('.testimonial__slide__bottom', {y: -150, opacity: 0}, {y:0, opacity: 1, duration: 1, stagger: .5})
       tl.fromTo('.testimonial__slide__left', {x: '100%', opacity:0}, {x:0, opacity:1, duration:1})
+
+
+      return () => {
+          window.removeEventListener('resize', handleWindowResize)
+      }
     }, []);
     
 
@@ -82,12 +98,12 @@ function Testimonials() {
     </SwiperSlide>;
     })
 
-  return <div className='py-32 testimonial__tl__init'>
+  return <div className='py-32 overflow-hidden testimonial__tl__init'>
       <div className='w-[85%] mx-auto text-center'>
         <h5 className='tracking-[5px] text-primary font-teko text-lg testimonial__slide__bottom'>TESTIMONIALS</h5>
-        <h1 className='my-8 text-5xl font-semibold leading-5 tracking-wider font-playfair testimonial__slide__bottom'>What People Says?</h1>
+        <h1 className='my-8 text-5xl font-semibold tracking-wider leading md:leading-5 font-playfair testimonial__slide__bottom'>What People Says?</h1>
         <div className='relative testimonial__slide__left'>
-            <SlidePerView ref={slideRef} slidesPerView={2} spaceBetween={50} slideId='testimonial-slide'>
+            <SlidePerView ref={slideRef} slidesPerView={windowWidth < 767 ? 1 : 2} spaceBetween={50} slideId='testimonial-slide'>
                 {renderSlide}
             </SlidePerView>
             <div onClick={prevSlide} className='absolute z-10 p-3 transition-all duration-300 -translate-y-1/2 border -left-6 border-primary top-1/2 text-primary hover:bg-primary/70 hover:border-none hover:text-white el__hover'><FaLongArrowAltLeft/></div>

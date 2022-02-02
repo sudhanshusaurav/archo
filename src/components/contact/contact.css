@@ -7,7 +7,7 @@
 }
 
 .contact-form{
-    @apply w-1/2 p-8 bg-white rounded-lg;
+    @apply w-full p-8 bg-white rounded-lg md:w-2/3 lg:w-1/2;
 }
 
 .input-group{

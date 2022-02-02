@@ -44,7 +44,7 @@ function Cursor() {
     }, []);
     
 
-  return <div className='opacity-0 cursor'>
+  return <div className='hidden opacity-0 cursor lg:block'>
       <div className="cursor__ball cursor__ball--inner">
       </div>
       <div className="transition-all duration-100 ease-linear cursor__ball cursor__ball--outer">
