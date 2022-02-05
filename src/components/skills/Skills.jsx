@@ -26,7 +26,7 @@ function Skills() {
     }else if (windowWidth < 991) {
       tl.fromTo('.skill__scroll__parallax', {top:200},{top:-50},"<")
     }else{
-      tl.fromTo('.skill__scroll__parallax', {top:400},{top:-100},"<")
+      tl.fromTo('.skill__scroll__parallax', {top:200},{top:-100},"<")
     }
 
     ScrollTrigger.create({
@@ -34,7 +34,7 @@ function Skills() {
       trigger: '.skill__scroll__parallax',
       start: 'top bottom',
       end: 'center top',
-      scrub: 3
+      scrub: 1
     })
 
     return () => {
